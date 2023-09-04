@@ -1,7 +1,7 @@
 <template>
     <section id="gallery" class="gallery">
         <h1 class="red">GALERIA</h1>
-        <swiper
+        <!-- <swiper
             :slides-per-view="3"
             :space-between="50"
             @swiper="onSwiper"
@@ -11,13 +11,13 @@
             <swiper-slide>Slide 2</swiper-slide>
             <swiper-slide>Slide 3</swiper-slide>
             ...
-        </swiper>
+        </swiper> -->
     </section>
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
+// import { Swiper, SwiperSlide } from 'swiper/vue';
+// import 'swiper/css';
 export default {
 }
 </script>
