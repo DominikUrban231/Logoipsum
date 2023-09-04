@@ -1,34 +1,25 @@
 <template>
     <section  class="form" :class="{ 'hidden': isComponentHidden }">
         <form action="">
-            <div class="input">
-                <label for="name">
-                    IMIĘ<span class="red">*</span>
-                    <input v-model="name" placeholder="- wpisz -" type="text" name="name" id="">
-                </label>
-            </div>
-            <div>
-                <label for="name">
-                    NAZWISKO<span class="red">*</span>
-                    <input v-model="surname" placeholder="- wpisz -" type="text" name="surname" id="">
-                </label>
-            </div>
-            <div>
-                <label for="name">
-                    ADRES E-MAIL<span class="red">*</span>
-                    <input v-model="email" placeholder="- wpisz -" type="email" name="email" id="">
-                </label>
-            </div>
-            <p><span class="red">*</span> - pola wymagane</p>
-            <div>
-                <label for="">
-                    <input v-model="accept" type="checkbox" name="" id="">
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-                </label>
-            </div>
-
+            <label>
+                IMIĘ<span>*</span>
+                <input v-model="name" placeholder="- wpisz -" type="text" name="name" required>
+            </label>
+            <label>
+                NAZWISKO<span>*</span>
+                <input v-model="surname" placeholder="- wpisz -" type="text" name="surname" required>
+            </label>
+            <label>
+                ADRES E-MAIL<span>*</span>
+                <input v-model="email" placeholder="- wpisz -" type="email" name="email" required>
+            </label>
+            <p><span>*</span> - pola wymagane</p>
+            <label>
+                <input v-model="accept" type="checkbox" required>
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+            </label>
             <button @click.prevent="formSubmit({name, surname, email, accept})" type="submit">Wyślij</button>
-            <p>Proszę uzupełnić wymagane pola</p>
+            <p v-if="showErrorMessage">Proszę uzupełnić wymagane pola</p>
 
             <img @click="" src="./../assets/svg/close.svg" alt="">
         </form>
@@ -39,7 +30,11 @@
 export default {
     methods: {
         formSubmit(formObject) {
-            console.log(formObject)
+            if (this.name && this.email && this.email && this.accept) {
+                console.log(formObject);
+            } else {
+                this.showErrorMessage = true;
+            }
         },
         
     },
@@ -49,16 +44,14 @@ export default {
             surname: '',
             email: '',
             accept: false,
-            isComponentHidden: 'false',
+            isComponentHidden: false,
+            showErrorMessage: false,
         }
     }
 }
 </script>
 
 <style lang="scss">
-.red {
-    color: #FF4359;
-}
 .form {
     position: relative;
     background-color: white;
@@ -92,4 +85,9 @@ export default {
         cursor: pointer;
     }
 }
+.hidden {
+    visibility: hidden;
+}
 </style>
+
+this.name && this.email && email && accept
