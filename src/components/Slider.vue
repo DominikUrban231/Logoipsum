@@ -2,17 +2,17 @@
     <div class="wrapper">
         <button @click="prevSlide"><img src="./../assets/svg/arrow-left.svg" alt=""></button>
         <div class="carusel">
-            <!-- <img src="./../assets/img/gallery-1.jpg" alt="">
+            <img src="./../assets/img/gallery-1.jpg" alt="">
             <img src="./../assets/img/gallery-2.jpg" alt="">
             <img src="./../assets/img/gallery-3.jpg" alt="">
-            <img src="./../assets/img/gallery-4.jpg" alt=""> -->
-        <img
+            <img src="./../assets/img/gallery-4.jpg" alt="">
+        <!-- <img
             v-for="(slide, index) in slides"
             :key="index"
             :src="slide.image"
             :alt="slide.alt"
             :class="{ 'preloaded': slide.preload }"
-        >
+        > -->
         </div>
         <button @click="nextSlide"><img src="./../assets/svg/arrow-right.svg" alt=""></button>
         <div class="pagination">
@@ -49,6 +49,7 @@ methods: {
 
 <style lang="scss">
 .wrapper {
+    max-width: 1200px;
     display: flex;
     align-content: center;
     .carusel {
@@ -56,7 +57,7 @@ methods: {
         img {
             height: 70vh;
             object-fit: cover;
-            width: 100%;
+            width: 70%;
         }
     }
 }

@@ -71,21 +71,28 @@ export default {
     .nav-left {
         display: flex;
         align-items: center;
-        img {
+        .logo {
+            img {
             padding-left: 20px;
+            width: 100%;
+
+            }
+
         }
     }
     .nav {
         a {
-            padding: 10px 30px;
-            margin-inline: 15px;
+            display: flex;
+            flex-direction: row;
+            padding: 6px 20px;
+            margin-inline: 5px;
             border-radius: 25px;
             cursor: pointer;
             font-size: 0.8em;
-        :hover {
-            box-shadow: 5px 5px 10px #FF4359(255, 0, 0);
- 
-        }
+            border: 2px solid #FF4359;
+            :hover {
+                box-shadow: 0px 0px 10px #FF4359;
+            }
         }
     }
     .social {
