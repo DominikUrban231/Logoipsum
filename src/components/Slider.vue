@@ -1,37 +1,63 @@
 <template>
-    <div class="slider">
-        <div class="slides" :style="{ transform: `translateX(${currentIndex * -100}%)` }">
-            <div v-for="(slide, index) in slides" :key="index" class="slide">
-                <img :src="slide.imageSrc" alt="Slide" />
-            </div>
-        </div>
-
-        <button @click="prevSlide" class="prev">Poprzedni</button>
-        <button @click="nextSlide" class="next">Następny</button>
-
-        <div class="pagination">
-        <span
+    <div class="wrapper">
+        <button @click="prevSlide"><img src="./../assets/svg/arrow-left.svg" alt=""></button>
+        <div class="carusel">
+            <!-- <img src="./../assets/img/gallery-1.jpg" alt="">
+            <img src="./../assets/img/gallery-2.jpg" alt="">
+            <img src="./../assets/img/gallery-3.jpg" alt="">
+            <img src="./../assets/img/gallery-4.jpg" alt=""> -->
+        <img
             v-for="(slide, index) in slides"
             :key="index"
-            @click="goToSlide(index)"
-            :class="{ active: index === currentIndex }"
-        ></span>
+            :src="slide.image"
+            :alt="slide.alt"
+            :class="{ 'preloaded': slide.preload }"
+        >
+        </div>
+        <button @click="nextSlide"><img src="./../assets/svg/arrow-right.svg" alt=""></button>
+        <div class="pagination">
+
+        </div>
     </div>
-  </div>
 </template>
 <script>
 export default {
-    data() {
-        return {
-            currentIndex: 0,
-            sliders: [
-            { imageSrc: './../assets/img/gallery-1.jpg' },
-            { imageSrc: './../assets/img/gallery-2.jpg' },
-            { imageSrc: './../assets/img/gallery-3.jpg' },
-            { imageSrc: './../assets/img/gallery-4.jpg' },
-            ]
-            
+data() {
+    return {
+    slides: [
+        { image: "./../assets/img/gallery-1.jpg", alt: "Slide 1" },
+        { image: "./../assets/img/gallery-2.jpg", alt: "Slide 2" },
+        { image: "./../assets/img/gallery-3.jpg", alt: "Slide 3" },
+        { image: "./../assets/img/gallery-4.jpg", alt: "Slide 3" },
+    ],
+    currentIndex: 0,
+    };
+},
+methods: {
+    prevSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+    },
+    nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    },
+    goToSlide(index) {
+    this.currentIndex = index;
+    },
+},
+};
+</script>
+
+<style lang="scss">
+.wrapper {
+    display: flex;
+    align-content: center;
+    .carusel {
+    white-space: nowrap;
+        img {
+            height: 70vh;
+            object-fit: cover;
+            width: 100%;
         }
     }
 }
-</script>
+</style>

@@ -9,6 +9,7 @@
                     <a @click="scrollToSection('heroImage')">START</a>
                     <a @click="scrollToSection('about')">O MNIE</a>
                     <a @click="scrollToSection('gallery')">GALERIA</a>
+                    <a @click="showForm">Kontakt</a>
                 </div>
             </div>
         </div>
@@ -23,7 +24,7 @@
                 <img src="./../assets/svg/youtube.svg" alt="Youtube">
             </a>
         </div>
-        <Form />
+        <Form :isVisible="isFormVisible" @hide-form="hideForm"/>
     </section>
 </template>
 
@@ -31,6 +32,11 @@
 import Form from '@/components/Form.vue';
 
 export default {
+    data() {
+        return {
+            isFormVisible: false,
+        }
+    },
     components: {
         Form,
     },
@@ -40,7 +46,13 @@ export default {
             if(targetElement) {
                 targetElement.scrollIntoView({behavior: 'smooth'})
             }
-        }
+        },showForm() {
+            this.isFormVisible = true;
+        },
+        hideForm() {
+            this.isFormVisible = false;
+        },
+
     }
 }
 </script>
@@ -59,14 +71,21 @@ export default {
     .nav-left {
         display: flex;
         align-items: center;
+        img {
+            padding-left: 20px;
+        }
     }
     .nav {
         a {
             padding: 10px 30px;
             margin-inline: 15px;
             border-radius: 25px;
-            box-shadow: 5px 5px 10px #FF4359(255, 0, 0);
             cursor: pointer;
+            font-size: 0.8em;
+        :hover {
+            box-shadow: 5px 5px 10px #FF4359(255, 0, 0);
+ 
+        }
         }
     }
     .social {

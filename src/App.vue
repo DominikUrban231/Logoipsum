@@ -21,8 +21,8 @@ export default {
     About,
     Footer,
     Navbar,
-    Gallery
-  }
+    Gallery,
+  },
 }
 </script>
 

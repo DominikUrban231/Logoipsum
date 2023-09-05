@@ -1,24 +1,15 @@
 <template>
     <section id="gallery" class="gallery">
         <h1 class="red">GALERIA</h1>
-        <!-- <swiper
-            :slides-per-view="3"
-            :space-between="50"
-            @swiper="onSwiper"
-            @slideChange="onSlideChange"
-        >
-            <swiper-slide>Slide 1</swiper-slide>
-            <swiper-slide>Slide 2</swiper-slide>
-            <swiper-slide>Slide 3</swiper-slide>
-            ...
-        </swiper> -->
+        <Slider />
     </section>
 </template>
 
 <script>
-// import { Swiper, SwiperSlide } from 'swiper/vue';
-// import 'swiper/css';
+import Slider from '@/components/Slider.vue';
+
 export default {
+    components: { Slider }
 }
 </script>
 

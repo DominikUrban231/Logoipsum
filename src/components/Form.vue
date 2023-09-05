@@ -1,27 +1,27 @@
 <template>
-    <section  class="form" :class="{ 'hidden': isComponentHidden }">
-        <form action="">
-            <label>
-                IMIĘ<span>*</span>
-                <input v-model="name" placeholder="- wpisz -" type="text" name="name" required>
-            </label>
-            <label>
-                NAZWISKO<span>*</span>
-                <input v-model="surname" placeholder="- wpisz -" type="text" name="surname" required>
-            </label>
-            <label>
-                ADRES E-MAIL<span>*</span>
-                <input v-model="email" placeholder="- wpisz -" type="email" name="email" required>
-            </label>
+    <section v-if="isVisible" class="form">
+        <form>
+            <div>
+                <label>IMIĘ<span>*</span></label>
+                <input v-model="name" placeholder="- wpisz -" type="text" name="name">
+            </div>
+            <div>
+                <label>NAZWISKO<span>*</span></label>
+                <input v-model="surname" placeholder="- wpisz -" type="text" name="name">
+            </div>
+            <div>
+                <label>E-MAIL<span>*</span></label>
+                <input v-model="email" placeholder="- wpisz -" type="text" name="name">
+            </div>
             <p><span>*</span> - pola wymagane</p>
             <label>
                 <input v-model="accept" type="checkbox" required>
-                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </label>
             <button @click.prevent="formSubmit({name, surname, email, accept})" type="submit">Wyślij</button>
             <p v-if="showErrorMessage">Proszę uzupełnić wymagane pola</p>
 
-            <img @click="" src="./../assets/svg/close.svg" alt="">
+            <img @click="hideForm" src="./../assets/svg/close.svg" alt="">
         </form>
     </section>
 </template>
@@ -36,6 +36,8 @@ export default {
                 this.showErrorMessage = true;
             }
         },
+        hideForm() {
+            this.$emit('hide-form');        }
         
     },
     data() {
@@ -44,9 +46,11 @@ export default {
             surname: '',
             email: '',
             accept: false,
-            isComponentHidden: false,
             showErrorMessage: false,
         }
+    },
+    props: {
+        isVisible: false,
     }
 }
 </script>
@@ -58,13 +62,22 @@ export default {
     box-shadow: 0px 0px 30px #FF4359;
     border-radius: 40px;
     position: fixed;
-    top: 25%;
-    left: 40%;
-    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    padding: 70px 50px;
+    label {
+        display: flex;
+        align-items: center;
+
+    }
     input {
         display: block;
-        padding: 10px;
-        margin-block: 10px;
+        padding: 0%;
+        width: 100%;
+        height: 2.5em;
+        margin: 10px 0px;
         border-radius: 7px;
         border-color: #AFAFAF;
     }
@@ -74,14 +87,20 @@ export default {
     button {
         text-align: center;
         background-color: #FF4359;
+        padding: 10px 30px;
+        border-radius: 7px;
+        box-shadow: 5px 5px 10px #FF4359(255, 0, 0);
+        width: 100%;
+        color: #FFFFFF;
+        border: none;
     }
-    p {
-        color: #FF4359;
-    }
+    // p {
+    //     color: #FF4359;
+    // }
     img {
         position: absolute;
-        right: 15px;
-        top: 15px;
+        right: 25px;
+        top: 25px;
         cursor: pointer;
     }
 }
@@ -89,5 +108,3 @@ export default {
     visibility: hidden;
 }
 </style>
-
-this.name && this.email && email && accept
