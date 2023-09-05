@@ -74,7 +74,7 @@ export default {
         .logo {
             img {
             padding-left: 20px;
-            width: 100%;
+            width: 80%;
 
             }
 
@@ -82,17 +82,17 @@ export default {
     }
     .nav {
         a {
-            display: flex;
+            display: inline;
             flex-direction: row;
-            padding: 6px 20px;
+            padding: 6px 10px;
             margin-inline: 5px;
             border-radius: 25px;
             cursor: pointer;
             font-size: 0.8em;
-            border: 2px solid #FF4359;
-            :hover {
-                box-shadow: 0px 0px 10px #FF4359;
-            }
+            color: #AFAFAF;
+        }
+        a:hover {
+            box-shadow: 0px 5px 10px #FF4359;
         }
     }
     .social {
