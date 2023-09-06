@@ -24,7 +24,4 @@ export default {
         width: 100%;
     }
 }
-// @media screen and (ma) {
-    
-// }
 </style>

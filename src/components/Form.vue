@@ -3,15 +3,15 @@
         <form>
             <div>
                 <label>IMIĘ<span>*</span></label>
-                <input v-model="name" placeholder="- wpisz -" type="text" name="name">
+                <input v-model="name" placeholder=" - wpisz -" type="text" name="name">
             </div>
             <div>
                 <label>NAZWISKO<span>*</span></label>
-                <input v-model="surname" placeholder="- wpisz -" type="text" name="name">
+                <input v-model="surname" placeholder=" - wpisz -" type="text" name="name">
             </div>
             <div>
                 <label>E-MAIL<span>*</span></label>
-                <input v-model="email" placeholder="- wpisz -" type="text" name="name">
+                <input v-model="email" placeholder=" - wpisz -" type="text" name="name">
             </div>
             <p><span>*</span> - pola wymagane</p>
             <label>
@@ -19,7 +19,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </label>
             <button @click.prevent="formSubmit({name, surname, email, accept})" type="submit">Wyślij</button>
-            <p v-if="showErrorMessage">Proszę uzupełnić wymagane pola</p>
+            <p class="red" v-if="showErrorMessage">Proszę uzupełnić wymagane pola</p>
 
             <img @click="hideForm" src="./../assets/svg/close.svg" alt="">
         </form>
@@ -102,6 +102,9 @@ export default {
         right: 25px;
         top: 25px;
         cursor: pointer;
+    }
+    .error {
+        color: #FF4359;
     }
 }
 .hidden {

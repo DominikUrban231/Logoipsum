@@ -75,9 +75,7 @@ export default {
             img {
             padding-left: 20px;
             width: 80%;
-
             }
-
         }
     }
     .nav {

@@ -20,6 +20,7 @@ export default {
 .about {
     display: flex;
     width: 100%;
+    margin-top: 8vh;
     .left {
         width: 70%;
         img {

@@ -27,9 +27,6 @@ export default {
 </script>
 
 <style lang="scss">
-@mixin red-border {
-  border: 2px solid red;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
