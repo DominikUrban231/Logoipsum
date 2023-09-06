@@ -1,5 +1,6 @@
 <template>
-    <swiper
+    <div class="carusel">
+        <swiper
         :slidesPerView="auto"
         :spaceBetween="30"
         :centeredSlides="true"
@@ -15,6 +16,8 @@
         <swiper-slide><img src="./../assets/img/gallery-3.jpg" alt=""></swiper-slide>
         <swiper-slide><img src="./../assets/img/gallery-4.jpg" alt=""></swiper-slide>
     </swiper>
+
+    </div>
 </template>
 
 <script>
@@ -41,6 +44,9 @@ export default {
 </script>
 
 <style lang="scss">
+.carusel {
+    position: relative;;
+}
 .swiper-button-next {
     color: #FF4359;
 }

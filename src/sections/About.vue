@@ -12,7 +12,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
@@ -35,4 +34,23 @@ export default {
         }
     }
 }
-</style>
+@media screen and (max-width: 1000px) {
+    .about {
+        flex-direction: column-reverse;
+        .left {
+            width: 100%;
+        }
+        .right {
+            width: 100%;
+            padding-inline: 0;
+            h1 {
+                max-width: fit-content;
+                margin: auto;
+                padding: 15px;
+            }
+            p {
+                padding: 50px;
+            }
+        }
+    }
+}</style>

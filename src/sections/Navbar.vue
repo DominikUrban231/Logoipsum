@@ -94,10 +94,16 @@ export default {
         }
     }
     .social {
+        display: flex;
     margin-right: 30px;
         a {
             padding-inline: 2px;
         }
     }
+    @media screen and (max-width: 720px) {
+        .social a {
+            flex-direction: column;
+        }
+    } 
 }
 </style>

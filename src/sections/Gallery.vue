@@ -18,7 +18,6 @@ export default {
     margin-top: 8vh;
 }
 .red {
-    display: block;
     max-width: fit-content;
     border-bottom: 2px solid #FF4359;
     margin: auto;
